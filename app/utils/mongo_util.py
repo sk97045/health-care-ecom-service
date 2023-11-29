@@ -12,6 +12,13 @@ class MongoDbUtil:
         result["_id"] = str(result["_id"])
        return result;
    
+    async def getDocuments(self,filter, pageSize):
+       documents = await self.model.find(filter).to_list(pageSize);
+       if len(documents) != 0:
+        for document in documents:
+            document["_id"] = str(document.pop("_id"))
+       return documents;
+
     async def updateDocument(self,filter,updateQuery):
         result = await self.model.update_one(filter,updateQuery)
         return result
