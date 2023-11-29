@@ -12,7 +12,7 @@ class MongoDbUtil:
         result["_id"] = str(result["_id"])
        return result;
    
-    async def getDocuments(self,filter, pageSize):
+    async def getDocuments(self,filter,pageSize: int | None):
        documents = await self.model.find(filter).to_list(pageSize);
        if len(documents) != 0:
         for document in documents:
