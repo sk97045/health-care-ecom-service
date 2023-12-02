@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from bson import ObjectId
-from app.cart.cart_model import cartModel, CartSchema
+from app.modules.cart.cart_model import cartModel, CartSchema
 router = APIRouter()
 
 @router.post("/create")

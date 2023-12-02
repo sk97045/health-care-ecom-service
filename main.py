@@ -8,4 +8,4 @@ app = FastAPI()
 async def read_root():
     return {"ok": True}
 
-app.include_router(services_router ,prefix="/service")
+app.include_router(services_router)
