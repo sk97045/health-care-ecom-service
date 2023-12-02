@@ -18,7 +18,6 @@ async def getAllUsers():
             response_description="Get a user details")
 async def getUserById(userId: str):
     user = await user_service.getUserById(userId)
-    print("from route", user)
     return user
 
 

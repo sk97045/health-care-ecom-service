@@ -17,11 +17,9 @@ class UserRepository:
 
     async def getUserById(self, userId: str):
         user = await self.user_collection.find_one({"_id": ObjectId(userId)})
-        print(user)
         return renameDocumentId(user)
 
     async def createUser(self, user: User):
-        print(user, dict(user))
         createResult = await self.user_collection.insert_one(dict(user))
         newUser = await self.user_collection.find_one({"_id": createResult.inserted_id})
         return renameDocumentId(newUser)
