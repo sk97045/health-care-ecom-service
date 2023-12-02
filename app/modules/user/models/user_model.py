@@ -1,6 +1,6 @@
 from typing import Optional, List
 
-from pydantic import BaseModel, Field, EmailStr, conlist
+from pydantic import Field, EmailStr, conlist
 
 from app.modules.user.types.user_type import UserType
 from app.modules.user.models.address_model import AddressModel
@@ -9,33 +9,33 @@ from app.utils.pydantic_model import PydanticModel, MongoDBObjectId
 
 class UserModel(PydanticModel):
     id: MongoDBObjectId = Field()
-    firstName: str = Field()
-    lastName: Optional[str] = Field(default=None)
-    primaryEmail: EmailStr = Field()
-    secondaryEmail: Optional[EmailStr] = Field(default=None)
-    primaryPhoneNumber: str = Field()
-    secondaryPhoneNumber: Optional[str] = Field(default=None)
-    userType: Optional[UserType] = Field(default=UserType.CUSTOMER)
+    first_name: str = Field()
+    last_name: Optional[str] = Field(default=None)
+    primary_email: EmailStr = Field()
+    secondary_email: Optional[EmailStr] = Field(default=None)
+    primary_phone_number: str = Field()
+    secondary_phone_number: Optional[str] = Field(default=None)
+    user_type: Optional[UserType] = Field(default=UserType.CUSTOMER)
     addresses: conlist(item_type=Optional[AddressModel], min_length=0) = Field(default=[])
 
 
 class CreateUserModel(PydanticModel):
-    firstName: str = Field()
-    lastName: Optional[str] = Field(default=None)
-    primaryEmail: EmailStr = Field()
-    secondaryEmail: Optional[EmailStr] = Field(default=None)
-    primaryPhoneNumber: str = Field()
-    secondaryPhoneNumber: Optional[str] = Field(default=None)
-    userType: Optional[UserType] = Field(default=UserType.CUSTOMER)
+    first_name: str = Field()
+    last_name: Optional[str] = Field(default=None)
+    primary_email: EmailStr = Field()
+    secondary_email: Optional[EmailStr] = Field(default=None)
+    primary_phone_number: str = Field()
+    secondary_phone_number: Optional[str] = Field(default=None)
+    user_type: Optional[UserType] = Field(default=UserType.CUSTOMER)
 
 
 class UpdateUserModel(PydanticModel):
-    firstName: Optional[str] = Field()
-    lastName: Optional[str] = Field()
-    primaryEmail: Optional[EmailStr] = Field()
-    secondaryEmail: Optional[EmailStr] = Field()
-    primaryPhoneNumber: Optional[str] = Field()
-    secondaryPhoneNumber: Optional[str] = Field()
+    first_name: Optional[str] = Field()
+    last_name: Optional[str] = Field()
+    primary_email: Optional[EmailStr] = Field()
+    secondary_email: Optional[EmailStr] = Field()
+    primary_phone_number: Optional[str] = Field()
+    secondary_phone_number: Optional[str] = Field()
 
 
 class UserCollection(PydanticModel):

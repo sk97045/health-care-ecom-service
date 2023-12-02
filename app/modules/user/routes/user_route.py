@@ -9,33 +9,33 @@ user_service = UserService()
 
 @router.get("/", response_model=UserCollection,
             response_description="List all users")
-async def getAllUsers():
-    users = await user_service.getAllUsers()
+async def get_all_users():
+    users = await user_service.get_all_users()
     return UserCollection(users=users)
 
 
 @router.get("/{userId}", response_model=UserModel,
             response_description="Get a user details")
-async def getUserById(userId: str):
-    user = await user_service.getUserById(userId)
+async def get_user_by_id(userId: str):
+    user = await user_service.get_user_by_id(userId)
     return user
 
 
 @router.post("/", response_model=UserModel, status_code=status.HTTP_201_CREATED,
              response_description="Create a user")
-async def createUser(user: CreateUserModel):
-    newUser = await user_service.createUser(user)
-    return newUser
+async def create_user(user: CreateUserModel):
+    new_user = await user_service.create_user(user)
+    return new_user
 
 
 @router.patch("/{userId}", response_model=UserModel,
               response_description="Update a user details")
-async def updateUser(userId: str, user: UpdateUserModel):
-    updatedUser = await user_service.updateUser(userId, user)
-    return updatedUser
+async def update_user(userId: str, user: UpdateUserModel):
+    updated_user = await user_service.update_user(userId, user)
+    return updated_user
 
 
 @router.delete("/{userId}", response_description="Delete a user")
-async def deleteUser(userId: str):
-    await user_service.deleteUser(userId)
+async def delete_user(userId: str):
+    await user_service.delete_user(userId)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
