@@ -9,4 +9,4 @@ if client:
 else:
     logger.error("MongoDB connection failed.")
 
-vikingsHealthCareDatabase = client["vikings_healthcare"]
+vikings_health_care_database = client["vikings_healthcare"]
