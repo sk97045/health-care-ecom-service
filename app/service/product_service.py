@@ -1,10 +1,10 @@
 from fastapi import HTTPException, status
-from app.config.mongo_config import vikings_health_care_database
+from app.config.mongo_config import database_client
 from app.utils.mongo_util import MongoDbUtil
-from app.request_models.product_model import *
-from app.schema_types.product import *
+from app.models.product_model import *
+from app.schema.product import *
 
-product_collection = MongoDbUtil(vikings_health_care_database["product"])
+product_collection = MongoDbUtil(database_client["product"])
 
 class ProductService:
     async def create_product(product: CreateProductRequest):

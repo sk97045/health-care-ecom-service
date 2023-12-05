@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from app.config.mongo_config import vikings_health_care_database
+from app.config.mongo_config import database_client
 from app.utils.mongo_util import MongoDbUtil
 
 class CartItems(BaseModel):
@@ -11,4 +11,4 @@ class CartSchema(BaseModel):
     user_id: str
     items: list[CartItems]
     
-cart_model = MongoDbUtil(vikings_health_care_database["cart"])
+cart_model = MongoDbUtil(database_client["cart"])

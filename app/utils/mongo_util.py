@@ -1,4 +1,3 @@
-from fastapi import HTTPException, status
 from pymongo import ReturnDocument
 
 from app.utils.document_id_helper import rename_document_id

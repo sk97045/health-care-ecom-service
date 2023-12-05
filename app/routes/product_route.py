@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Body, HTTPException, status, Response
 from app.service.product_service import ProductService
-from app.request_models.product_model import *
+from app.models.product_model import *
 
 router = APIRouter()
 service = ProductService()
