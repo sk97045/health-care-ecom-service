@@ -7,8 +7,8 @@ pip install -r requirements.txt
 # Run the project
 
 ## Step1: Set up the environment variables
-export MONGODB_URI="mongodb+srv://<username>:<password>@<url>/<db>?retryWrites=true&w=majority"
-export DATABASE_NAME="databasename"
+1. `export MONGODB_URI="mongodb+srv://<username>:<password>@<url>/<db>?retryWrites=true&w=majority"`
+2. `export DATABASE_NAME="databasename"`
 
 ## Step2: Run the binary
 uvicorn main:app --reload
