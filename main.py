@@ -1,10 +1,14 @@
+import uvicorn
 from fastapi import FastAPI
-from app.routes import router as services_router
+from routes import router as services_router
 
 app = FastAPI(title="Vikings Healthcare Ecommerce Project")
+app.include_router(services_router ,prefix="/service")
 
 @app.get("/health")
 async def read_root():
     return {"ok": True}
 
-app.include_router(services_router ,prefix="/service")
+# uvicorn main:app --reload
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=8001)

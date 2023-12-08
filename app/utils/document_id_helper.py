@@ -6,7 +6,7 @@ the nested level documents
 """
 def rename_document_id_dict(document: dict):
     if '_id' in document:
-        document['id'] = document.pop('_id')
+        document['id'] = str(document.pop('_id'))
     for field in document:
         # Handling nested level _id in a document.
         rename_document_id(document[field])
@@ -20,6 +20,9 @@ def rename_document_id_list(documents: list):
         rename_document_id(document)
     return documents
 
+"""
+Handles renaming _id for a document of type Any
+"""
 def rename_document_id(document: Any):
     if isinstance(document, dict):
         return rename_document_id_dict(document)
