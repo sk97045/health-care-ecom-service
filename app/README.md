@@ -26,6 +26,10 @@ uvicorn main:app --reload
 
 # Run the project using docker
 
+## Docker image location
+
+https://hub.docker.com/r/sk97045/health-care-service
+
 ## Create a .env file 
 
 Put below in the env file.
