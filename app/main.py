@@ -1,6 +1,6 @@
 import uvicorn
 from fastapi import FastAPI
-from routes import router as services_router
+from app.routes.routes import router as services_router
 
 app = FastAPI(title="Vikings Healthcare Ecommerce Project")
 app.include_router(services_router ,prefix="/service")
